@@ -57,49 +57,49 @@ orthographyConverter.addTextTransform("norm",[["",""],["\u2019","'"],["\u2018","
         getVars[elements[0]] = elements[1];
     });
     
-    if ("p" in getVars && getVars["p"] == 'random') {
-        // ?p=random gives you the random entries page
-        $("#randomEntries").html(getRandom10());
-        $("#smallTitle").show();
-        $("#randomDiv").show();
-    } else if ("p" in getVars && getVars["p"] == 'browse') {
-        // ?p=browse&i=X gives you the browse entries page starting from entry number X
-        if ("i" in getVars) {
-            startIndex = parseInt(getVars["i"]);
-        }
-        var entries = getAllEntries();
-        entries.sort(function(a,b) {
-            var aForm = a["display_form"][0];
-            var bForm = b["display_form"][0];
-            return aForm.localeCompare(bForm);
-        });
-        var tenEntries = get10(entries, startIndex);
-        if (startIndex != 0) {
-            var prevIndex = Math.max(startIndex - 10, 0);
-            $(".browsePrev").attr("href", "?p=browse&i=" + prevIndex).show();
-        }
-        if (startIndex + 10 <= entries.length) {
-            var nextIndex = startIndex+10;
-            $(".browseNext").attr("href", "?p=browse&i=" + nextIndex).show();
-        }
-        $("#browseEntries").html(tenEntries.join(""));
-        $("#browseDiv h3").html("Entries " + (startIndex+1)+ "-" + (startIndex+1+tenEntries.length) + ":");
-        $("#smallTitle").show();
-        $("#browseDiv").show();  
-    } else if ("p" in getVars && getVars["p"] != 'home') {
-        // ?p=<anything else> gives you that page, and we don't do anything else special
-        $("#smallTitle").show();
-        $(".page"+getVars["p"]).show();
-    } else if ("e" in getVars && "s" in getVars) {
-        // if there's an "e" and an "s", then it's an entry page.  e is the word, s is the source resource
-        var word = aposReplace(getVars["e"]);
-        var sourceID = aposReplace(getVars["s"]);
-        findEntry(word, sourceID);
-        $("#smallTitle").show();
-        $("#entryDiv").show();
-    } else {
-        $(".pagehome").show();
-    }
+//    if ("p" in getVars && getVars["p"] == 'random') {
+//        // ?p=random gives you the random entries page
+//        $("#randomEntries").html(getRandom10());
+//        $("#smallTitle").show();
+//        $("#randomDiv").show();
+//    } else if ("p" in getVars && getVars["p"] == 'browse') {
+//        // ?p=browse&i=X gives you the browse entries page starting from entry number X
+//        if ("i" in getVars) {
+//            startIndex = parseInt(getVars["i"]);
+//        }
+//        var entries = getAllEntries();
+//        entries.sort(function(a,b) {
+//            var aForm = a["display_form"][0];
+//            var bForm = b["display_form"][0];
+//            return aForm.localeCompare(bForm);
+//        });
+//        var tenEntries = get10(entries, startIndex);
+//        if (startIndex != 0) {
+//            var prevIndex = Math.max(startIndex - 10, 0);
+//            $(".browsePrev").attr("href", "?p=browse&i=" + prevIndex).show();
+//        }
+//        if (startIndex + 10 <= entries.length) {
+//            var nextIndex = startIndex+10;
+//            $(".browseNext").attr("href", "?p=browse&i=" + nextIndex).show();
+//        }
+//        $("#browseEntries").html(tenEntries.join(""));
+//        $("#browseDiv h3").html("Entries " + (startIndex+1)+ "-" + (startIndex+1+tenEntries.length) + ":");
+//        $("#smallTitle").show();
+//        $("#browseDiv").show();  
+//    } else if ("p" in getVars && getVars["p"] != 'home') {
+//        // ?p=<anything else> gives you that page, and we don't do anything else special
+//        $("#smallTitle").show();
+//        $(".page"+getVars["p"]).show();
+//    } else if ("e" in getVars && "s" in getVars) {
+//        // if there's an "e" and an "s", then it's an entry page.  e is the word, s is the source resource
+//        var word = aposReplace(getVars["e"]);
+//        var sourceID = aposReplace(getVars["s"]);
+//        findEntry(word, sourceID);
+//        $("#smallTitle").show();
+//        $("#entryDiv").show();
+//    } else {
+//        $(".pagehome").show();
+//    }
     
     /* A utility function used by the above when finding a word.  It finds the entry,
         injects it into a template, and inserts that template into the page. */
