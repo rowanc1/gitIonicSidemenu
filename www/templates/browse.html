@@ -1,13 +1,55 @@
-<ion-view view-title="About Us">
+<ion-view view-title="Browse">
   <ion-content>
-        <p style="text-align: center">This is a beta version of the Gitksan/English Online Dictionary, a project of the University of British Columbia Department of Linguistics (PI: Henry Davis).</p><br/>
-        
-        <dl style="text-align: center">
-            <dt>Lexicographers:</dt>
-            <dd>Aidan Pine</dd><dd>Avery Ozburn</dd><dd>Elise McClay</dd><dd>Katie Bicevskis</dd><dd>Kevin Dickie</dd><dd>Kyra BW</dd><dd>Michael David Schwan</dd><dd>Samuel Akinbo</dd><dd>T. J. Heins</dd><dd>Zoe Wang</dd>
-            <dt>Developers:</dt>
-            <dd>Patrick Littell</dd>
-            <dd>Aidan Pine (Mobile)</dd>
-        </dl>
+     <div class="list">
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Select a Letter
+    </div>
+    <select>
+        <option>A</option>
+        <option>AA</option>
+        <option selected>B</option>
+        <option>D</option>
+        <option>E</option>
+        <option>EE</option>
+        <option>G</option>
+        <option>H</option>
+        <option>HL</option>
+        <option>I</option>
+        <option>II</option>
+        <option>J</option>
+        <option>K</option>
+        <option>K'</option>
+        <option>K&#x0332</option>
+        <option>K&#x0332'</option>
+        <option>L</option>
+        <option>'L</option>
+        <option>M</option>
+        <option>'M</option>
+        <option>N</option>
+        <option>'N</option>
+        <option>O</option>
+        <option>OO</option>
+        <option>P</option>
+        <option>P'</option>
+        <option>S</option>
+        <option>T</option>
+        <option>T'</option>
+        <option>TS</option>
+        <option>TS'</option>
+        <option>U</option>
+        <option>UU</option>
+        <option>W</option>
+        <option>'W</option>
+        <option>X</option>
+        <option>X&#x0332</option>
+        <option>Y</option>
+        <option>'Y</option>    
+    </select>
+  </label>
+</div>
+      <button on-tap="onTap()" class="button browseButton button-block button-stable">Click Here to Browse Words</button>
+        <div id="browseEntries" style="text-align: center">
+        </div>
   </ion-content>
 </ion-view>
