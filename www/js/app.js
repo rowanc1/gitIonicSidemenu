@@ -40,9 +40,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  
+  .state('app.random', {
+      url: '/random',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/random.html'
+          }
+      }
+  })
 
   .state('app.browse', {
-      url: '/browse',
+      url: '/aboutus',
       views: {
         'menuContent': {
           templateUrl: 'templates/browse.html'
