@@ -49,14 +49,14 @@
     </select>
   </label>
 </div>
-      <button on-tap="onTapBrowse()" class="button browseButton button-block button-stable">Click Here to Browse Words</button>
+<!--      <button on-tap="onTapBrowse()" class="button browseButton button-block button-stable">Click Here to Browse Words</button>-->
     <div class=browseContainer>
-        
-        <div on-swipe-left="dragPrevEntries()" on-swipe-right="dragNextEntries()" id="browseEntries" class="browseElements">
+        <div data-ng-controller="AppCtrl" data-ng-init="init()" id="browseEntries" class="browseElements">
         </div>
-        
-        <a on-tap="prev10()" class="button icon-left browseIcons ion-chevron-left button-clear button-dark"></a>
-        <a on-tap="next10()" class="button icon-right browseIcons ion-chevron-right button-clear button-dark"></a>
     </div>
   </ion-content>
+    <div class="bar bar-footer bar-stable">
+        <a on-tap="prev10()" class="button icon-left browseIcons ion-chevron-left button-clear button-dark"></a>
+        <a on-tap="next10()" class="button icon-right browseIcons ion-chevron-right button-clear button-dark"></a>
+        </div>
 </ion-view>

@@ -24,6 +24,22 @@ angular.module('starter.controllers', [])
         
         var tenEntries = get10(entries, startIndex);
     
+// Init functions
+    $scope.init = function () {
+var entries = getAllEntries();
+                        entries.sort(function(a,b) {
+                        var aForm = a["display_form"][0];
+                        var bForm = b["display_form"][0];
+                        return aForm.localeCompare(bForm);
+                });
+    
+        var startIndex = 0;
+        
+        var tenEntries = get10(entries, startIndex);
+     $("#browseEntries").html(tenEntries.join(""));
+      
+  };
+    
 // Tap Buttons
     
     $scope.onTapRandom = function () {
@@ -33,12 +49,12 @@ angular.module('starter.controllers', [])
     }; 
     
     
-    $scope.onTapBrowse = function () {
-        
-        
-                $("#browseEntries").html(tenEntries.join(""));
-    
-            }; // Browse condition end
+//    $scope.onTapBrowse = function () {
+//        
+//        
+//                $("#browseEntries").html(tenEntries.join(""));
+//    
+//            }; // Browse condition end
     
     $scope.prev10 = function () {
         if ((startIndex - 10) > 0) {
@@ -60,7 +76,7 @@ $("#browseEntries").html(tenEntries.join(""));
         console.log(startIndex);
     };
     
-}) // AppCtrl
+}) 
 
 
 .controller('PlaylistsCtrl', function($scope) {
