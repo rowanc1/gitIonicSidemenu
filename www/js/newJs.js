@@ -118,6 +118,7 @@ orthographyConverter.addTextTransform("norm",[["",""],["\u2019","'"],["\u2018","
         }
         $("#entryDivInner").html("Cannot find word " + word);
     }
+
     
 
 

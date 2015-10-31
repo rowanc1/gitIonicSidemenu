@@ -1,1 +1,17 @@
 /* Empty. Add your own CSS if you like */
+
+.browseElements {
+    margin: 0 auto;
+}
+
+.browseContainer {
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+}
+
+.browseIcons {
+vertical-align: bottom;
+margin: 0 8%;
+/*display: none;*/
+}

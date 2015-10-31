@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -10,19 +10,57 @@ angular.module('starter.controllers', [])
   $scope.$on('$ionicView.enter', function(e) {
   });
 
+//  Tap/Drag vars
+    
+    
+       var entries = getAllEntries();
+                        entries.sort(function(a,b) {
+                        var aForm = a["display_form"][0];
+                        var bForm = b["display_form"][0];
+                        return aForm.localeCompare(bForm);
+                });
+    
+        var startIndex = 0;
+        
+        var tenEntries = get10(entries, startIndex);
+    
 // Tap Buttons
-    $scope.onTap = function () {
-        $('#randomEntries').html(getRandom10());
-//        if ($(this).hasClass("randomButton")) {
-//        $('#randomEntries').html(getRandom10());
-//        } else if ($(this).hasClass("browseButton")) {
-//$("#browseEntries").html(tenEntries.join(""));
-//        }
+    
+    $scope.onTapRandom = function () {
+            
+         $('#randomEntries').html(getRandom10());
+       
+    }; 
+    
+    
+    $scope.onTapBrowse = function () {
+        
+        
+                $("#browseEntries").html(tenEntries.join(""));
+    
+            }; // Browse condition end
+    
+    $scope.prev10 = function () {
+        if ((startIndex - 10) > 0) {
+        startIndex -= 10;
+        tenEntries = get10(entries, startIndex);
+$("#browseEntries").html(tenEntries.join(""));
+        console.log(startIndex);
+        } else {
+        startIndex = 0;
+        tenEntries = get10(entries, startIndex);
+$("#browseEntries").html(tenEntries.join(""));
+        console.log(startIndex);
+        };   
 };
     
-
+    $scope.next10 = function () {
+        startIndex += 10;
+        tenEntries = get10(entries, startIndex);   $("#browseEntries").html(tenEntries.join(""));
+        console.log(startIndex);
+    };
     
-})
+}) // AppCtrl
 
 
 .controller('PlaylistsCtrl', function($scope) {
