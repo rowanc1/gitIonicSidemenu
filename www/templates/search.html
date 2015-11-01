@@ -6,23 +6,24 @@
 
 </style>
 <ion-view view-title="Gitksan / English Dictionary">
-  <ion-content>
+  <ion-content ng-controller="AppCtrl">
       <div class="list">
         <label class="item item-input item-select">
             <div class="input-label">
                <span>Search Language:</span>
             </div>
-            <select>
+            <select ng-model="selectedLang" ng-change="showSelectValue(selectedLang)">
                 <option selected>Gitksan</option>
                 <option>English</option>
             </select>
         </label>
       </div>
       
-      <label class="item item-input">
+      <label  class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
-        <input ng-model="word" style="text-align: center" type="search" placeholder="Type Your Word Here">
+        <input ng-keyup="getResult(searchWord)" class="input" id="engSearch" ng-model="searchWord" style="text-align: center" type="search" placeholder="Type Your Word Here">
       </label>
+      <div id="results"></div>
       
   </ion-content>
 </ion-view>

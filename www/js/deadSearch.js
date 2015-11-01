@@ -257,3 +257,19 @@
             return instantiateTemplate("short", "root", item);      // templatize them
         });                                          
     }
+
+// Attempt at Letter-based Browse
+//var letter;
+//var wordForLetter;           
+//// function(array, letter)
+//function getByLetter(entries, letter) {
+//// get index of first word where charAt(0) = letter
+//for (var i in entries) {
+//    if (i.charAt(0) === letter) {
+//// set index to letter
+//        startIndex = $(this).index();
+//// run get10 with
+//        get10(entries, startIndex);
+//    };
+//};
+//}

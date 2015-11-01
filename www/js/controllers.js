@@ -9,7 +9,8 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   $scope.$on('$ionicView.enter', function(e) {
   });
-
+    
+    
 //  Tap/Drag vars
     
     
@@ -25,6 +26,7 @@ angular.module('starter.controllers', [])
         var tenEntries = get10(entries, startIndex);
     
 // Init functions
+    
     $scope.init = function () {
 var entries = getAllEntries();
                         entries.sort(function(a,b) {
@@ -48,15 +50,39 @@ var entries = getAllEntries();
        
     }; 
     
+// Search function, uses ng-model to set input to variable, then decides whether to search in English or Gitksan based on the ID of the .input element
+
+    $scope.searchWord = "";
     
-//    $scope.onTapBrowse = function () {
-//        
-//        
-//                $("#browseEntries").html(tenEntries.join(""));
-//    
-//            }; // Browse condition end
+    $scope.getResult = function(searchWord) {
+        if ( $(".input").attr('id') === "engSearch") {
+            dataTyped(searchWord, engSearch);
+        } else if ( $(".input").attr('id') === "gitSearch") {
+            dataTyped(searchWord, gitSearch);
+        } else if ( searchWord === "" ) {
+            $(".input").hide();
+        }
+    };
+
+// Changes ID of .input element based on selected option
     
-    $scope.prev10 = function () {
+    $scope.showSelectValue = function(selectedLang) {
+        if (selectedLang === "Gitksan") {
+            $(".input").attr('id', 'gitSearch');
+        } else if (selectedLang === "English") {
+            $(".input").attr('id', "engSearch")
+    };
+    };
+    
+// Browse functions
+  
+// Attempt at letter-based-browse files also in browse.html and deadSearch.js    
+//$scope.showSelectValue = function(selectedLetter) {
+//    letter = String(selectedLetter);
+//    getByLetter(entries, letter);
+//};
+    
+$scope.prev10 = function () {
         if ((startIndex - 10) > 0) {
         startIndex -= 10;
         tenEntries = get10(entries, startIndex);
@@ -69,8 +95,9 @@ $("#browseEntries").html(tenEntries.join(""));
         console.log(startIndex);
         };   
 };
+
     
-    $scope.next10 = function () {
+$scope.next10 = function () {
         startIndex += 10;
         tenEntries = get10(entries, startIndex);   $("#browseEntries").html(tenEntries.join(""));
         console.log(startIndex);
