@@ -55,24 +55,30 @@ var entries = getAllEntries();
     $scope.searchWord = "";
     
     $scope.getResult = function(searchWord) {
-        if ( $(".input").attr('id') === "engSearch") {
+        if ( $(".input").val() === "") {
+            $("#results").hide();
+        } else if ( $(".input").attr('id') === "engSearch") {
             dataTyped(searchWord, engSearch);
         } else if ( $(".input").attr('id') === "gitSearch") {
             dataTyped(searchWord, gitSearch);
-        } else if ( searchWord === "" ) {
-            $(".input").hide();
-        }
+        } 
     };
 
 // Changes ID of .input element based on selected option
+    //Default choice set to English. ID of results div also set to English
+    
+    $scope.selectedLang = "English"; 
     
     $scope.showSelectValue = function(selectedLang) {
+
         if (selectedLang === "Gitksan") {
             $(".input").attr('id', 'gitSearch');
         } else if (selectedLang === "English") {
             $(".input").attr('id', "engSearch")
     };
     };
+    
+  
     
 // Browse functions
   

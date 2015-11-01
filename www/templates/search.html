@@ -12,9 +12,9 @@
             <div class="input-label">
                <span>Search Language:</span>
             </div>
-            <select ng-model="selectedLang" ng-change="showSelectValue(selectedLang)">
-                <option selected>Gitksan</option>
-                <option>English</option>
+            <select ng-model="selectedLang" ng-change="showSelectValue(selectedLang); getResult(searchWord)">
+                <option selected>English</option>
+                <option>Gitksan</option>
             </select>
         </label>
       </div>
