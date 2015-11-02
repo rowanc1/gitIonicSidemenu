@@ -72,8 +72,14 @@ var entries = getAllEntries();
     $scope.showSelectValue = function(selectedLang) {
 
         if (selectedLang === "Gitksan") {
+            $(".input").attr('autocomplete', 'off');
+            $(".input").attr('autocorrect', 'off');
+            $(".input").attr('spellcheck', 'false');
             $(".input").attr('id', 'gitSearch');
         } else if (selectedLang === "English") {
+            $(".input").attr('autocomplete', 'on');
+            $(".input").attr('autocorrect', 'on');
+            $(".input").attr('spellcheck', 'true');
             $(".input").attr('id', "engSearch")
     };
     };
@@ -112,16 +118,16 @@ $scope.next10 = function () {
 }) 
 
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('WordCtrl', function($scope) {
+//  $scope.playlists = [
+//    { title: 'Reggae', id: 1 },
+//    { title: 'Chill', id: 2 },
+//    { title: 'Dubstep', id: 3 },
+//    { title: 'Indie', id: 4 },
+//    { title: 'Rap', id: 5 },
+//    { title: 'Cowbell', id: 6 }
+//  ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('WordCtrl', function($scope, $stateParams) {
 });
