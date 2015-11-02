@@ -188,30 +188,30 @@
             var response = ''
             if (matches.length > 0) {
                 if (matches.length > 1) {
-                    response += "<p>Matches found:</p>\n";
+                    response += "<p class='matchResponse'>Matches found:</p>\n";
                 } else {
-                    response += "<p>Match found:</p>\n";
+                    response += "<p class='matchResponse'>Match found:</p>\n";
                 }
                 response += matches.join("\n");
             }
             
             if (closeMatches.length > 0) {
                 if (closeMatches.length > 1) {
-                    response += "<p>Partial matches found:</p>\n";
+                    response += "<p class='matchResponse'>Partial matches found:</p>\n";
                 } else {
-                    response += "<p>Partial match found:</p>\n";
+                    response += "<p class='matchResponse'>Partial match found:</p>\n";
                 }
                 response += closeMatches.join("\n");
             }
         
             if (otherMatches.length == 0) {
                 if (matches.length == 0 && closeMatches.length == 0) {
-                    response += "<p>No matches found.</p>\n";
+                    response += "<p class='matchResponse'>No matches found.</p>\n";
                 } 
             } else if (matches.length == 0 && closeMatches.length == 0) {
-                response += "<p>No matches found.  Here are some other possibilities:</p>\n";
+                response += "<p class='matchResponse'>No matches found.  Here are some other possibilities:</p>\n";
             } else {
-                response += "<p>Other possibilities:</p>\n";
+                response += "<p class='matchResponse'>Other possibilities:</p>\n";
             }
             response += otherMatches.join("\n");
         
