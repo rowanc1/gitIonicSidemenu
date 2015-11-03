@@ -67,21 +67,34 @@ var entries = getAllEntries();
 // Changes ID of .input element based on selected option
     //Default choice set to English. ID of results div also set to English
     
-    $scope.selectedLang = "English"; 
+//    $scope.selectedLang = "English"; 
     
-    $scope.showSelectValue = function(selectedLang) {
-
-        if (selectedLang === "Gitksan") {
+    var selectedLang = $().attr('id'); 
+    
+    $scope.gitClick = function() {
             $(".input").attr('autocomplete', 'off');
             $(".input").attr('autocorrect', 'off');
             $(".input").attr('spellcheck', 'false');
             $(".input").attr('id', 'gitSearch');
-        } else if (selectedLang === "English") {
+            $("#gitButton").css('background-color', '#006666');
+            $("#gitButton").html("Searching in Gitksan");
+            $("#engButton").css('background-color', '#b2b2b2');
+            $("#engButton").css('color', "#000");
+            $("#gitButton").css('color', "#fff");
+            $("#engButton").html("Click here to search in English");
+    }
+    
+    $scope.engClick = function() {
             $(".input").attr('autocomplete', 'on');
             $(".input").attr('autocorrect', 'on');
             $(".input").attr('spellcheck', 'true');
             $(".input").attr('id', "engSearch")
-    };
+            $("#engButton").css('background-color', '#006666');
+            $("#engButton").css('color', "#fff");
+            $("#gitButton").css('color', "#000");
+            $("#engButton").html("Searching in English");
+            $("#gitButton").css('background-color', '#b2b2b2');
+            $("#gitButton").html("Click here to search in Gitksan");
     };
     
   

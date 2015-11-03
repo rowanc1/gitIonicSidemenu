@@ -7,23 +7,16 @@
 </style>
 <ion-view view-title="Gitksan / English Dictionary">
   <ion-content ng-controller="AppCtrl">
-      <div class="radioButtons">
-            <label class="item item-radio" ng-model="selectedLang" ng-change="showSelectValue(selectedLang); getResult(searchWord)">
-                    <input type="radio" name="languageInput">
-                    <div class="item-content">Search in English</div>
-                    <i class="radio-icon ion-checkmark"></i>
-          </label>
-          <label class="item item-radio" ng-model="selectedLang" ng-change="showSelectValue(selectedLang); getResult(searchWord)">
-                    <input type="radio" name="languageInput">
-                    <div class="item-content">Search in Gitksan</div>
-                    <i class="radio-icon ion-checkmark"></i>
-            </label>    
+      <div class="buttonContainer">
+          <button class="button lang" id="gitButton" ng-click="gitClick()">Search in Gitksan</button>
+          <button class="button lang" id="engButton" ng-click="engClick()">Search in English</button> 
       </div>
       
       <label  class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
         <input ng-keyup="getResult(searchWord)" class="input" id="engSearch" ng-model="searchWord" style="text-align: center" type="search" placeholder="Type Your Word Here" autocapitalize="off">
       </label>
+      
       <div id="results"></div>
       
   </ion-content>
