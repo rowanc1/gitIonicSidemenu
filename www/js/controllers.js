@@ -67,21 +67,23 @@ var entries = getAllEntries();
 // Changes ID of .input element based on selected option
     //Default choice set to English. ID of results div also set to English
     
-    $scope.selectedLang = "English"; 
     
-    $scope.showSelectValue = function(selectedLang) {
-
-        if (selectedLang === "Gitksan") {
+  $scope.gitClick = function() {
             $(".input").attr('autocomplete', 'off');
             $(".input").attr('autocorrect', 'off');
             $(".input").attr('spellcheck', 'false');
             $(".input").attr('id', 'gitSearch');
-        } else if (selectedLang === "English") {
+            $('#gitButton').prop('checked', true);
+            $('#engButton').prop('checked', false);
+    }
+    
+    $scope.engClick = function() {
             $(".input").attr('autocomplete', 'on');
             $(".input").attr('autocorrect', 'on');
             $(".input").attr('spellcheck', 'true');
             $(".input").attr('id', "engSearch")
-    };
+            $('#engButton').prop('checked', true);
+            $('#gitButton').prop('checked', false);
     };
     
   
